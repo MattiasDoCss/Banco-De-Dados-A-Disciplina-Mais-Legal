@@ -83,3 +83,12 @@ LEFT JOIN livros ON autores.id = livrinhos.autor_id
 GROUP BY autores.id
 ORDER q_livros DESC
 LIMIT 1;
+
+--Exercício 17:
+select produto, SUM(receita) as s_da_r FROM vendas 
+GROUP BY produto HAVING SUM(receita) = (
+	SELECT MIN(total_r) FROM (
+		SELECT produto, SUM(receita) AS total_da_r FROM vendas 
+        GROUP BY produto 
+    ) AS r_g_c_produto
+);
