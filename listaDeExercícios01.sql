@@ -39,3 +39,12 @@ GROUP BY produto;
 
 SELECT * FROM r_totaL
 WHERE total_r >= "10000.00";
+
+--Exercício 10:
+CREATE VIEW q_livros AS
+SELECT nome, COUNT(autor_id) AS t_l_autor FROM livros 
+JOIN autores a ON a.id = l.autor_id
+GROUP BY nome;
+
+SELECT * FROM q_livros
+WHERE t_l_autor >= 2;
