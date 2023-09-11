@@ -27,3 +27,7 @@ GROUP BY nome;
 SELECT curso, COUNT(a.id) AS q_de_alunos FROM alunos a
 JOIN matriculas m ON m.id  = a.id
 GROUP BY curso;
+
+--Exercício 8:
+SELECT produto, AVG(receita) AS m_produto FROM vendas
+GROUP BY produto;
