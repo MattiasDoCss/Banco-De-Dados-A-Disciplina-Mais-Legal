@@ -92,3 +92,8 @@ GROUP BY produto HAVING SUM(receita) = (
         GROUP BY produto 
     ) AS r_g_c_produto
 );
+
+--Exercício 19:
+SELECT alunos.id AS A_ID, a.nome AS Nome_A, COUNT(matriculas.id) AS N_de_M FROM alunos
+LEFT JOIN  matriculas ON alunos.id = m.aluno_id
+GROUP BY alunos.id, a.nome;
