@@ -15,7 +15,7 @@ LEFT JOIN matriculas m ON m.id  = a.id
 WHERE curso = "Engenharia de Software";
 
 --Exercício 5:
-SELECT produto, SUM(receita) AS total.r FROM vendas
+SELECT produto, SUM(receita) AS total_r FROM vendas
 GROUP BY produto;
 
 --Exercício 6:
@@ -30,4 +30,9 @@ GROUP BY curso;
 
 --Exercício 8:
 SELECT produto, AVG(receita) AS m_produto FROM vendas
+GROUP BY produto;
+
+--Exercício 9:
+CREATE VIEW r_totaL AS 
+SELECT produto, SUM(receita) AS total_r FROM vendas
 GROUP BY produto;
