@@ -68,3 +68,7 @@ INSERT INTO autores(id, nome, nascimento) VALUES (NULL,"Mattias","2006-04-28");
 
 SELECT nome, titulo FROM autores a
 LEFT JOIN  livros ON a.id = l.autor_id;
+
+--Exercício 14:
+SELECT nome, curso FROM alunos a
+RIGHT JOIN matriculas m ON m.id  = a.id;
