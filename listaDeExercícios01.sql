@@ -13,3 +13,7 @@ WHERE a.nome = 'J.K Rowling';
 SELECT aluno_id, nome, curso FROM alunos a
 LEFT JOIN matriculas m ON m.id  = a.id
 WHERE curso = "Engenharia de Software";
+
+--Exercício 5:
+SELECT produto, SUM(receita) AS total.r FROM vendas
+GROUP BY produto;
