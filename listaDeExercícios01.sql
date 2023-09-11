@@ -37,5 +37,5 @@ CREATE VIEW r_totaL AS
 SELECT produto, SUM(receita) AS total_r FROM vendas
 GROUP BY produto;
 
-SELECT * FROM r_total
+SELECT * FROM r_totaL
 WHERE total_r >= "10000.00";
