@@ -48,3 +48,10 @@ GROUP BY nome;
 
 SELECT * FROM q_livros
 WHERE t_l_autor >= 2;
+
+--Exercício 11:
+CREATE VIEW l_e_a AS
+SELECT titulo, nome FROM livros 
+JOIN autores a ON a.id = l.autor_id;
+
+SELECT * FROM l_e_a;
