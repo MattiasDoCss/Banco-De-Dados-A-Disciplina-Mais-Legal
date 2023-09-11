@@ -55,3 +55,10 @@ SELECT titulo, nome FROM livros
 JOIN autores a ON a.id = l.autor_id;
 
 SELECT * FROM l_e_a;
+
+--Exercício 12:
+CREATE VIEW a_c AS
+SELECT nome, curso FROM alunos a
+RIGHT JOIN matriculas m ON m.id  = a.id;
+
+SELECT * FROM a_c;
