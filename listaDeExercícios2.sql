@@ -42,6 +42,22 @@ CALL sp_LivrosPorCategoria("Autoajuda");
 
 --EX04
 
+
+--EX05
+DELIMITER //
+  CREATE PROCEDURE sp_LivrosAteAno(IN p_lpano INT)
+  BEGIN
+    SELECT Titulo, Ano_Publicacao FROM Livro
+    WHERE Ano_Publicacao <= p_lpano
+  END
+//
+DELIMITER ;
+CALL sp_LivrosAteAno(2002);
+
+
+
+
+
 -- Ex 8 
 DELIMITER //
 
