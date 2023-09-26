@@ -39,3 +39,17 @@ END
 
 DELIMITER ;
 CALL sp_LivrosPorCategoria("Autoajuda");
+
+--EX04
+
+-- Ex 8 
+DELIMITER //
+
+CREATE PROCEDURE EncontrarAutorMaisAntigo()
+BEGIN
+    SELECT nome, Sobrenome FROM Autor
+    WHERE data_nascimento = (SELECT MIN(data_nascimento) FROM Autor);
+END 
+//
+DELIMITER ;
+CALL EncontrarAutorMaisAntigo();
