@@ -55,7 +55,17 @@ DELIMITER ;
 CALL sp_LivrosAteAno(2002);
 
 
-
+--EX06
+DELIMITER //
+CREATE PROCEDURE sp_LivrosPorCategoria(IN p_categoria varchar(100))
+BEGIN
+    SELECT titulo FROM Livro 
+    WHERE Categoria_ID = (SELECT Categoria_ID FROM Categoria 
+    WHERE Nome = p_categoria);
+END
+//
+DELIMITER ;
+CALL sp_LivrosPorCategoria("Romance");
 
 
 -- Ex 8 
