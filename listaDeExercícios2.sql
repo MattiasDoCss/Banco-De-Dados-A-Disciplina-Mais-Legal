@@ -79,3 +79,15 @@ END
 //
 DELIMITER ;
 CALL EncontrarAutorMaisAntigo();
+
+
+--EX09
+-- Eu escolhi a procedure 1 para explicar, é o seguinte:
+DELIMITER // --O delimiter é o delimitador do código, normalmente é usado ";" para finalizar cada comando e etc, com o delimiter, passa-se a usar // para finalizar o código
+  CREATE PROCEDURE sp_ListarAutores() --CREATE PROCEDURE - vai criar um procedimento armazenado chamado sp_ListarAutores()
+  BEGIN -- BEGIN começa
+    SELECT nome, sobrenome FROM Autor; -- O SELECT vai fazer um consulta das colunas nome e sobrenome da tabela Autor
+  END -- END termina
+// -- Termina o delimitador //
+DELIMITER ; -- Delimitador volta a ser ";"
+CALL sp_ListarAutores(); -- CALL vai fazer a chamada da procedure criada
