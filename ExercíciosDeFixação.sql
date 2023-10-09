@@ -104,6 +104,21 @@ SELECT produto, preco, quantidade,
     END AS categoria_preco
 FROM produtos;
 
+--EX05
+--A)
+DELIMITER //
+CREATE FUNCTION TOTAL_VALOR (quantidade INT, preco DECIMAL(10, 2))
+RETURNS DECIMAL(10, 2) 
+BEGIN
+	DECLARE total DECIMAL(10, 2);
+	SET total = quantidade * preco;
+	RETURN total;
+END //
+-- SE funciona, eu não sei, mas eu tentei, copiei do seu exemplo de aula de funções
+
+--B)
+SELECT produto, preco, quantidade, TOTAL_VALOR(preco, quantidade) AS valor_total
+FROM produtos;
 
 
 
@@ -120,8 +135,6 @@ SELECT MIN(preco) FROM produtos;
 --D)
 SELECT SUM(IF(quantidade > 0, preco * quantidade, 0)) AS total_em_estoque
 FROM produtos;
-
-
 
 --EX07
 --A)
