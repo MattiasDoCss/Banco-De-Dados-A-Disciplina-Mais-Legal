@@ -1,1 +1,11 @@
+-- EX01
+CREATE TRIGGER 	novo_nome
+	AFTER INSERT ON Clientes 
+	FOR EACH ROW 
+INSERT INTO Auditoria(mensagem) values ('Novo nome adicionado!');
 
+insert into Clientes (nome) 
+VALUES ('Michele');
+
+select * from Auditoria;
+select * from Clientes;
