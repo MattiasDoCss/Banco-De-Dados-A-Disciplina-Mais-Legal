@@ -27,3 +27,23 @@ CREATE TRIGGER trg_depois_nomes_clientes
 AFTER UPDATE ON Clientes
 FOR EACH ROW INSERT INTO Auditoria(mensagem)
 VALUES(CONCAT("Nome de cliente modificado. Nome antigo: ", OLD.nome, ", novo nome: ", New.nome));
+
+-- EX04
+
+DELIMITER //
+CREATE TRIGGER trg_tentativa_add_nome
+BEFORE INSERT ON Clientes
+FOR EACH ROW
+BEGIN
+    IF NEW.nome IS NULL OR NEW.nome = '' THEN
+        INSERT INTO Auditoria (mensagem) VALUES ('Tentativa de atualização de nome inválida em Clientes');
+    END IF;
+END;
+//
+DELIMITER ;
+
+
+INSERT INTO Clientes(nome) 
+VALUES ('');
+
+SELECT * FROM Auditoria;
