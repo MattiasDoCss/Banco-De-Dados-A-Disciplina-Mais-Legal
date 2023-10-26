@@ -9,3 +9,14 @@ VALUES ('Michele');
 
 select * from Auditoria;
 select * from Clientes;
+
+-- EX02
+
+CREATE TRIGGER 	nome_deletado
+	BEFORE DELETE ON Clientes 
+	FOR EACH ROW 
+INSERT INTO Auditoria(mensagem) values ('Tentativa de exclusão de nome!');
+
+DELETE FROM Clientes WHERE nome='Michele';
+
+SELECT * FROM Auditoria;
